@@ -34,11 +34,15 @@ public class ProductoController {
 	}
 
 	@GetMapping(value = "/ver/{id}")
-	public Producto detalle(@PathVariable Long id) {
+	public Producto detalle(@PathVariable Long id) throws Exception {
 		Producto producto = productoService.findById(id);
 		// con esto obtienes el puerto en el que está el microservicio
 //		producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 		producto.setPort(port);
+//		boolean ok = false;
+//		if (!ok) {
+//			throw new Exception("Algo");
+//		}
 		return producto;
 	}
 
