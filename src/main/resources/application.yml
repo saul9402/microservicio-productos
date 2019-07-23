@@ -1,8 +1,10 @@
 spring:
   application:
     name: servicio-productos
+#Asi se pone el valor del puerto como valor random, la aplicación lo asigna
 server:
-  port: 8001
+  port: ${PORT:0}
+
 #Esta configuración es opcional cuando el servidor
 #eureka y los clientes están el la misma máquina,
 #pero se vuelve obligatoria cuando están en diferentes lugares.
@@ -20,3 +22,6 @@ eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka
+#Con esto se configura la instancia para que genere su nombre de aplicación (ID) con un random
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
