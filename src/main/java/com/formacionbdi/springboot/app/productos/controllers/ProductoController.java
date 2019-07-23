@@ -39,10 +39,18 @@ public class ProductoController {
 		// con esto obtienes el puerto en el que está el microservicio
 //		producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 		producto.setPort(port);
-//		boolean ok = false;
-//		if (!ok) {
-//			throw new Exception("Algo");
-//		}
+
+		/**
+		 * Prueba con histryx cuando se tiene un timeout
+		 * Thread.sleep(2_000L);
+		 * 
+		 */
+
+		/**
+		 * Prueba con hystrix cuando se manda una excepción boolean ok = false; if (!ok)
+		 * { throw new Exception("Algo"); }
+		 */
+
 		return producto;
 	}
 
