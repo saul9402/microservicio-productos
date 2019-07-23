@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -20,8 +21,8 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Producto implements Serializable{
-	
+public class Producto implements Serializable {
+
 	private static final long serialVersionUID = 3649044873808417048L;
 
 	@Id
@@ -34,5 +35,8 @@ public class Producto implements Serializable{
 
 	@Temporal(TemporalType.DATE)
 	private Date createAt;
+
+	@Transient
+	private Integer port;
 
 }
