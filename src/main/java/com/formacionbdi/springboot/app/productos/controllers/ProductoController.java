@@ -42,8 +42,8 @@ public class ProductoController {
 
 		/**
 		 * Prueba con histryx cuando se tiene un timeout
-		 * Thread.sleep(2_000L);
 		 * 
+		 * Thread.sleep(2_000L);
 		 */
 
 		/**
