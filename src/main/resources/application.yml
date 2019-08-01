@@ -1,6 +1,9 @@
 spring:
   application:
     name: servicio-productos
+  sleuth:
+    sampler:
+      probability: 1.0
 #Asi se pone el valor del puerto como valor random, la aplicación lo asigna
 server:
   port: ${PORT:0}
