@@ -14,7 +14,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @SpringBootApplication
 /**
  * Le indicas donde busar la entidades, ya que de no hacerlo no las va a
- * encontrar puesto que no pertenece al package base.
+ * encontrar puesto que no pertenece al package base. Se encuentran en commons.
  * 
  */
 @EntityScan({ "com.formacionbdi.springboot.app.commons.models.entity" })

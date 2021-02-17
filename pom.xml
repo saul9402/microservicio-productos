@@ -15,7 +15,6 @@
 	<name>springboot-servicio-productos</name>
 	<description>Proyecto como microservicio para administrar productos</description>
 
-
 	<properties>
 		<java.version>14</java.version>
 	</properties>
@@ -62,7 +61,7 @@
 				spring-cloud-starter-netflix-eureka-client
 			</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
