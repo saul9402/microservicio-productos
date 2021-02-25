@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.formacionbdi.springboot.app.commons.models.entity.Producto;
+import com.formacionbdi.springboot.app.productos.anotaciones.UserInfo;
+import com.formacionbdi.springboot.app.productos.anotaciones.WithUser;
 import com.formacionbdi.springboot.app.productos.models.service.IProductoService;
 
 @RestController
@@ -40,11 +42,12 @@ public class ProductoController {
 	}
 
 	@GetMapping(value = "/ver/{id}")
-	public Producto detalle(@PathVariable Long id) throws Exception {
-		Producto producto = productoService.findById(id);
+	public Producto detalle(@WithUser UserInfo user, @PathVariable Long id) throws Exception {
+		Producto producto = productoService.findById(id, user);
 		// con esto obtienes el puerto en el que está el microservicio
 //		producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
-		producto.setPort(port);
+		producto.setPort(1);
+		producto.setNombre(user.getUsername());
 
 		/**
 		 * Prueba con histryx cuando se tiene un timeout
@@ -68,8 +71,8 @@ public class ProductoController {
 
 	@PutMapping(value = "/editar/{id}")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Producto editar(@RequestBody Producto producto, @PathVariable Long id) {
-		Producto productoDb = productoService.findById(id);
+	public Producto editar(@WithUser UserInfo user, @RequestBody Producto producto, @PathVariable Long id) {
+		Producto productoDb = productoService.findById(id, user);
 		productoDb.setNombre(producto.getNombre());
 		productoDb.setPrecio(producto.getPrecio());
 		return productoService.save(productoDb);
