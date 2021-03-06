@@ -11,6 +11,12 @@ import org.springframework.web.method.support.ModelAndViewContainer;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 
+/**
+ * 
+ * @author saul_
+ *         {@docRoot https://medium.com/@Baimurzin/how-to-get-the-current-user-in-spring-cloud-microservices-c876e1c6fc65}
+ * 
+ */
 public class WithUserHandlerMethodArgumentResolver implements HandlerMethodArgumentResolver {
 
 	@Override
@@ -28,7 +34,9 @@ public class WithUserHandlerMethodArgumentResolver implements HandlerMethodArgum
 		String authorizationHeader = httpServletRequest.getHeader("Authorization");
 		authorizationHeader = authorizationHeader.replace("Bearer ", "");
 		// Using jjwt library parse our token and create Claim object
-		Claims claims = Jwts.parser().setSigningKey("omfospmfomwpoPDMSPEOFMPOMPOmpomfp.seomfpowsmpfoampovmrpovmpo.spfonvpompvioqempvin.dfinvpinfpvinaspivnpid.fnvpidnf.pvindfpivnpdifnvpin76543567".getBytes()) // todo just example
+		Claims claims = Jwts.parser().setSigningKey(
+				"omfospmfomwpoPDMSPEOFMPOMPOmpomfp.seomfpowsmpfoampovmrpovmpo.spfonvpompvioqempvin.dfinvpinfpvinaspivnpid.fnvpidnf.pvindfpivnpdifnvpin76543567"
+						.getBytes()) // todo just example
 				.parseClaimsJws(authorizationHeader).getBody();
 		// create UserInfo object which we need to inject in our method
 		String name = (String) claims.get("user_name");
