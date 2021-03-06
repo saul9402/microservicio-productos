@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.formacionbdi.springboot.app.commons.annotation.UserInfo;
+import com.formacionbdi.springboot.app.commons.annotation.WithUser;
 import com.formacionbdi.springboot.app.commons.models.entity.Producto;
-import com.formacionbdi.springboot.app.productos.anotaciones.UserInfo;
-import com.formacionbdi.springboot.app.productos.anotaciones.WithUser;
 import com.formacionbdi.springboot.app.productos.models.service.IProductoService;
 
 @RestController
