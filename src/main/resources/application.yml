@@ -1,6 +1,11 @@
 spring:
   application:
     name: servicio-productos
+    #Se modifica la probabilidad en que Sleuth va a enviar las trazas a Zipkin, por defecto sólo se envian el 10% de las veces (request)
+#0.1 es el 10% y 1 es el 100% de las veces
+  sleuth:
+    sampler:
+      probability: 1.0
 #Asi se pone el valor del puerto como valor random, la aplicación lo asigna
 server:
   port: ${PORT:0}
