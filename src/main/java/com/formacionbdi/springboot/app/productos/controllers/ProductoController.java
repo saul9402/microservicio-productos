@@ -47,7 +47,6 @@ public class ProductoController {
 		// con esto obtienes el puerto en el que está el microservicio
 //		producto.setPort(Integer.parseInt(env.getProperty("local.server.port")));
 		producto.setPort(1);
-		producto.setNombre(user.getUsername());
 
 		/**
 		 * Prueba con histryx cuando se tiene un timeout
@@ -71,8 +70,8 @@ public class ProductoController {
 
 	@PutMapping(value = "/editar/{id}")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public Producto editar(@WithUser UserInfo user, @RequestBody Producto producto, @PathVariable Long id) {
-		Producto productoDb = productoService.findById(id, user);
+	public Producto editar(@RequestBody Producto producto, @PathVariable Long id) {
+		Producto productoDb = productoService.findById(id);
 		productoDb.setNombre(producto.getNombre());
 		productoDb.setPrecio(producto.getPrecio());
 		return productoService.save(productoDb);
