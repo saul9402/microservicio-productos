@@ -5,8 +5,8 @@ spring:
     config:
     #Con esto se configura la uri del servidor de configuraciones
       uri:
-      - http://localhost:8888
-#Si requieres setear el perfil que está activo se hacedesde aqui
+      - http://config-server:8888
+#Si requieres setear el perfil que está activo se hace desde aqui
   profiles:
     active:
     - dev
