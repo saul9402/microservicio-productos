@@ -6,6 +6,8 @@ spring:
     #Con esto se configura la uri del servidor de configuraciones
       uri:
       - http://localhost:8888
+      #con esto configuras la rama de donde va tomar los valores
+      label: development-configuration
 #Si requieres setear el perfil que está activo se hacedesde aqui
   profiles:
     active:
